@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Input Nilai Support dan Nilai Confidence</h1>
+        <!-- Konten tambahan sesuai kebutuhan -->
+        <form action="{{ url_for('process') }}" method="post" class="mt-5">
+            <div class="form-group">
+                <label for="support">Masukan Nilai Support %</label>
+                <input type="number" step="0.01" class="form-control" id="support" name="support" required>
+            </div>
+            <div class="form-group">
+                <label for="confidence">Masukan Nilai Confidence %</label>
+                <input type="number" step="0.01" class="form-control" id="confidence" name="confidence" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Proses</button>
+            <a href="{{ url_for('show_dataset') }}" class="btn btn-primary">Kembali</a>
+        </form>
+          <!-- Description Section -->
+          <div class="mt-4">
+            <h5>Keterangan:</h5>
+            <p><strong>Minimum Support:</strong> Nilai persentase yang menentukan seberapa sering suatu itemset muncul dalam dataset. Misalnya, jika Anda menetapkan minimum support sebesar 75%, maka itemset yang muncul di setidaknya 75% dari semua transaksi akan dipertimbangkan.</p>
+            <p><strong>Minimum Confidence:</strong> Nilai persentase yang menentukan seberapa sering aturan asosiasi dianggap benar. Misalnya, jika Anda menetapkan minimum confidence sebesar 90%, maka aturan asosiasi yang memiliki confidence minimal 90% akan dipertimbangkan.</p>
+        </div>
+    </div>
+</body>
+</html>

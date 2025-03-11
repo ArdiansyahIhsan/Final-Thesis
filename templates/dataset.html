@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampilan Dataset</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .table-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .center-table {
+            margin: 0 auto;
+        }
+        .centered-table td, .centered-table th {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .top-right-buttons {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: -50px;
+        }
+        .header-row th {
+            background-color: #0c85fe;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Tampilan Dataset</h1>
+        <div class="table-container">
+            <div class="top-right-buttons">
+                <form action="{{ url_for('batasan') }}" method="get" class="d-inline-block">
+                    <button type="submit" class="btn btn-primary">Proses</button>
+                </form>
+                <a href="{{ url_for('visualisasi_page') }}" class="btn btn-primary">Grafik Penjualan</a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Kembali</a>
+            </div>
+            <div class="center-table">
+                {{ data|safe }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
